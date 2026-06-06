@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Aleena ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #f8c1d9);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .page {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .active { display: flex; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.1rem;
+        }
+
+        button {
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            background: white;
+            color: #ff4f81;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        input {
+            padding: 18px;
+            width: 280px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            border: none;
+            text-align: center;
+            margin: 25px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1 -->
+    <div class="page active" id="page1">
+        <h1>❤️ Aleena ❤️</h1>
+        <h2 style="margin:20px 0;">A love letter from my heart...</h2>
+        <button onclick="showPage(2)">Open With Love ❤️</button>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page2">
+        <h1>🔐 Secret Question</h1>
+        <h2>Who is your bachpan ka pyaar? ❤️</h2>
+        <input id="answer" placeholder="Type name here" autocomplete="off">
+        <button onclick="checkAnswer()">Submit ❤️</button>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page3">
+        <h1>🥺 Aleena...</h1>
+        <h2>I have something special to tell you</h2>
+        <button onclick="showPage(4)">Read My Love Letter ❤️</button>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page" id="page4">
+        <h1>❤️ Aleena ❤️</h1>
+        <img src="photo.jpg.jpeg.jpeg" style="width:100%; max-width:320px; border-radius:20px; margin:20px 0; box-shadow:0 10px 30px rgba(0,0,0,0.3);" alt="Memory">
+        <h2>Abdulrehman Loves You Deeply</h2>
+        <p style="max-width:340px; line-height:1.8; font-size:1.1rem;">
+            My dearest Aleena,<br><br>
+            You will always have the most beautiful place in my heart ❤️<br><br>
+            Thank you for every smile and beautiful moment.<br><br>
+            <strong>Forever yours,<br>Abdulrehman 💕</strong><br><br>
+            Umwahhhhh 😘
+        </p>
+    </div>
+
+    <script>
+        function showPage(n) {
+            document.querySelectorAll('.page').forEach(p => {
+                p.classList.remove('active');
+            });
+            document.getElementById('page' + n).classList.add('active');
+        }
+
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value.toLowerCase().trim();
+            if (answer.includes("abdul") || answer.includes("rehman")) {
+                showPage(3);
+            } else {
+                alert("Try again with love ❤️");
+            }
+        }
+    </script>
+</body>
+</html>
