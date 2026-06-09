@@ -1,182 +1,210 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aleena Loves Abdul - Truth or Dare 🔥</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
-       
-        body {
-            background: linear-gradient(135deg, #ff0066, #ff6699, #cc0066);
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            text-align: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 20px 0; }
-        .container { max-width: 420px; margin: 0 auto; }
-        button {
-            padding: 18px 40px;
-            font-size: 1.3rem;
-            margin: 15px 8px;
-            border: none;
-            border-radius: 50px;
-            background: white;
-            color: #ff0066;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .card {
-            background: rgba(255,255,255,0.15);
-            padding: 25px;
-            border-radius: 20px;
-            margin: 25px 0;
-            min-height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-        .level { font-size: 1.1rem; margin: 10px 0; font-weight: 600; }
-        input {
-            padding: 15px;
-            font-size: 1.2rem;
-            width: 80%;
-            border-radius: 50px;
-            border: none;
-            margin: 20px 0;
-            text-align: center;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aleena ❤️ Abdul</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Poppins,sans-serif;
+    background:linear-gradient(135deg,#ff4d88,#ff80aa,#ff3366);
+    color:white;
+    text-align:center;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    max-width:400px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:20px;
+    margin-top:20px;
+    min-height:140px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.1rem;
+}
+
+input,select{
+    width:85%;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    margin:10px;
+    text-align:center;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    margin:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.floating{
+    position:fixed;
+    font-size:24px;
+    animation:float 8s linear infinite;
+    opacity:.7;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-100px);}
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>🔥 Aleena Loves Abdul 🔥</h1>
-        <h2>Truth or Dare Game</h2>
 
-        <!-- Name Input -->
-        <div id="nameScreen">
-            <p style="font-size:1.3rem; margin:20px 0;">Enter Your Name</p>
-            <input type="text" id="playerName" placeholder="e.g. Aleena or Abdul Rehman" autocomplete="off">
-            <button onclick="startGame()">Start Game 🔥</button>
-        </div>
+<div class="floating" style="left:10%">💋</div>
+<div class="floating" style="left:30%;animation-delay:2s;">❤️</div>
+<div class="floating" style="left:55%;animation-delay:4s;">😘</div>
+<div class="floating" style="left:80%;animation-delay:1s;">💖</div>
 
-        <!-- Game Screen -->
-        <div id="gameScreen" style="display: none;">
-            <div style="margin:30px 0 20px;">
-                <button onclick="getTruth()" style="background:#ff3366;color:white;">Truth 😇</button>
-                <button onclick="getDare()" style="background:#ff3366;color:white;">Dare 😈</button>
-            </div>
+<div class="container">
 
-            <div id="level" class="level"></div>
-            <div id="question" class="card">Ready to play hot game? 🔥</div>
-            <button onclick="newOne()" style="background:#660033;color:white;">Next Question</button>
-            
-            <p style="margin-top:30px; font-size:1rem; opacity:0.9;">
-                Made by Abdul Rehman ❤️
-            </p>
-        </div>
+<h1>💋 Aleena ❤️ Abdul 💋</h1>
+
+<div id="login">
+    <input type="text" id="name" placeholder="Enter Name">
+    <br>
+
+    <select id="gender">
+        <option value="boy">👦 Boy</option>
+        <option value="girl">👧 Girl</option>
+    </select>
+    <br>
+
+    <button onclick="startGame()">Start ❤️</button>
+</div>
+
+<div id="game" style="display:none;">
+
+    <h3 id="welcome"></h3>
+
+    <button onclick="truth()">😇 Truth</button>
+    <button onclick="dare()">😈 Dare</button>
+    <button onclick="partner()">🤝 Partner</button>
+
+    <div class="card" id="question">
+        Ready to Play? ❤️
     </div>
 
-    <script>
-        let playerName = "";
+</div>
 
-        // Mixed Truths (Romantic + Naughty)
-        const truths = [
-            "What is your favorite thing about your partner?",
-            "What is the naughtiest thought you've had about your partner today?",
-            "Have you ever touched yourself thinking about your partner?",
-            "Which part of your partner's body turns you on the most?",
-            "Describe your wildest fantasy with your partner.",
-            "What is one romantic thing you want to do with your partner?",
-            "Have you ever had a wet dream about your partner?",
-            "What is the most risky place you want to make love with your partner?",
-            "What color underwear are you wearing right now? (Send proof)",
-            "Send a voice note telling your partner what you feel for them.",
-            "What is your favorite sex position with your partner?",
-            "Rate your partner's body from 1-10 and explain why.",
-            "Have you ever stolen your partner's underwear?",
-            "What is the hottest thing your partner has ever done?"
-        ];
+</div>
 
-        // Mixed Dares (Shareef + Hot 18+)
-        const mildDares = [
-            "Say 'I love you' in the most romantic way and send voice note.",
-            "Dance for 10 seconds and send video.",
-            "Send a cute selfie with a flying kiss.",
-            "Sing one line of a romantic song for your partner.",
-            "Do a funny face and send photo.",
-            "Say your partner's name 10 times seductively.",
-            "Write your partner's name on your hand and show.",
-            "Send a voice note describing your first meeting."
-        ];
+<script>
 
-        const hotDares = [
-            "Send a shirtless / bra-less photo right now.",
-            "Take off one piece of clothing and send proof.",
-            "Send a photo of yourself in underwear.",
-            "Do a sexy dance on video (minimum 10 seconds).",
-            "Send a voice note moaning your partner's name.",
-            "Write 'I belong to [Partner]' on your body and send photo.",
-            "Send a completely naked photo (one view only).",
-            "Record a short video touching yourself while saying your partner's name.",
-            "Send a photo of your hard dick / wet pussy.",
-            "Do a striptease video (minimum 15 seconds).",
-            "Record a 10-second masturbation video and send.",
-            "Send a voice note describing how you want to fuck your partner."
-        ];
+let role="boy";
 
-        function getRandom(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
+const boyTruths=[
+"What is your favorite thing about Aleena?",
+"When did you first realize you liked Aleena?",
+"Which photo of Aleena is your favorite?",
+"What is your dream date with Aleena?",
+"What is the cutest thing Aleena does?"
+];
 
-        function startGame() {
-            playerName = document.getElementById("playerName").value.trim();
-            if (playerName === "") playerName = "Baby";
+const girlTruths=[
+"What is your favorite thing about Abdul?",
+"What was your first impression of Abdul?",
+"What is Abdul's most attractive feature?",
+"What is your favorite memory with Abdul?",
+"Have you ever re-read Abdul's messages?"
+];
 
-            document.getElementById("nameScreen").style.display = "none";
-            document.getElementById("gameScreen").style.display = "block";
-            
-            document.getElementById("question").innerHTML = `Hi ${playerName}! Let's play mixed hot Truth or Dare 🔥`;
-        }
+const boyDares=[
+"Send Aleena 10 heart emojis ❤️",
+"Record a voice note saying her name.",
+"Tell Aleena 3 things you like about her.",
+"Send your favorite photo of Aleena.",
+"Give Aleena a cute nickname."
+];
 
-        function getTruth() {
-            document.getElementById('level').innerHTML = "❤️ Truth (Mixed)";
-            let q = getRandom(truths);
-            document.getElementById('question').innerHTML = q + "<br><br><b>Screenshot & Send in Chat</b>";
-        }
+const girlDares=[
+"Send Abdul a flying kiss selfie 💋",
+"Tell Abdul something sweet.",
+"Send Abdul 10 kiss emojis 😘",
+"Give Abdul a romantic nickname.",
+"Send a voice note saying 'I miss you'."
+];
 
-        function getDare() {
-            const rand = Math.random();
-            let dareText;
-            
-            if (rand < 0.45) {
-                document.getElementById('level').innerHTML = "😊 Mild Dare";
-                dareText = getRandom(mildDares);
-            } else {
-                document.getElementById('level').innerHTML = "🔥 Hot Dare (18+)";
-                dareText = getRandom(hotDares);
-            }
-            
-            dareText = dareText.replace("[Partner]", playerName);
-            document.getElementById('question').innerHTML = dareText + "<br><br><b>Screenshot & Send in Chat</b>";
-        }
+const partnerDares=[
+"Ask your partner their favorite memory with you ❤️",
+"Ask your partner to rate your smile 😘",
+"Ask your partner for a cute selfie 📸",
+"Ask your partner what they admire most about you.",
+"Ask your partner what song reminds them of you 🎶"
+];
 
-        function newOne() {
-            if (Math.random() > 0.5) {
-                getTruth();
-            } else {
-                getDare();
-            }
-        }
+function random(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
+}
 
-        window.onload = () => {
-            document.getElementById("playerName").focus();
-        };
-    </script>
+function startGame(){
+
+    let name=document.getElementById("name").value.trim().toLowerCase();
+
+    const allowed=[
+        "aleena",
+        "abdul",
+        "abdul rehman",
+        "abdulrehman"
+    ];
+
+    if(!allowed.includes(name)){
+        alert("❌ Access Denied 💋 Only Aleena & Abdul can enter ❤️");
+        return;
+    }
+
+    role=document.getElementById("gender").value;
+
+    document.getElementById("login").style.display="none";
+    document.getElementById("game").style.display="block";
+
+    document.getElementById("welcome").innerHTML=
+    "Welcome ❤️";
+}
+
+function truth(){
+
+    if(role==="boy"){
+        document.getElementById("question").innerHTML=random(boyTruths);
+    }else{
+        document.getElementById("question").innerHTML=random(girlTruths);
+    }
+}
+
+function dare(){
+
+    if(role==="boy"){
+        document.getElementById("question").innerHTML=random(boyDares);
+    }else{
+        document.getElementById("question").innerHTML=random(girlDares);
+    }
+}
+
+function partner(){
+    document.getElementById("question").innerHTML=random(partnerDares);
+}
+
+</script>
+
 </body>
 </html>
+```
