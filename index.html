@@ -7,63 +7,105 @@
 <title>Aleena ❤️ Abdul</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Poppins,sans-serif;
-    background:linear-gradient(135deg,#ff4d88,#ff80aa,#ff3366);
-    color:white;
-    text-align:center;
-    min-height:100vh;
-    overflow:hidden;
+min-height:100vh;
+background:linear-gradient(135deg,#ff4d88,#ff7aa2,#ff3366);
+overflow:hidden;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
 .container{
-    max-width:400px;
-    margin:auto;
-    padding:20px;
+width:100%;
+max-width:450px;
+text-align:center;
+z-index:2;
 }
 
-.card{
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    padding:20px;
-    margin-top:20px;
-    min-height:140px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.1rem;
+.glass{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:25px;
+box-shadow:0 8px 30px rgba(0,0,0,.15);
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.subtitle{
+margin-bottom:20px;
+opacity:.9;
 }
 
 input,select{
-    width:85%;
-    padding:12px;
-    border:none;
-    border-radius:30px;
-    margin:10px;
-    text-align:center;
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+margin:8px 0;
+font-size:16px;
+text-align:center;
 }
 
 button{
-    padding:12px 25px;
-    border:none;
-    border-radius:30px;
-    margin:8px;
-    cursor:pointer;
-    font-weight:bold;
+padding:12px 20px;
+border:none;
+border-radius:30px;
+margin:5px;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.truthBtn{background:#fff;color:#ff3366;}
+.dareBtn{background:#ffe066;color:#222;}
+.partnerBtn{background:#9bf6ff;color:#222;}
+.nextBtn{background:#222;color:#fff;}
+
+.card{
+margin-top:20px;
+min-height:170px;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+font-size:18px;
+line-height:1.5;
+border-radius:20px;
+background:rgba(255,255,255,.18);
+}
+
+.score{
+margin:15px 0;
+font-weight:bold;
 }
 
 .floating{
-    position:fixed;
-    font-size:24px;
-    animation:float 8s linear infinite;
-    opacity:.7;
+position:fixed;
+font-size:30px;
+animation:float 10s linear infinite;
+opacity:.7;
 }
 
 @keyframes float{
-    from{transform:translateY(100vh);}
-    to{transform:translateY(-100px);}
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-120px);}
 }
 </style>
 </head>
@@ -71,38 +113,46 @@ button{
 <body>
 
 <div class="floating" style="left:10%">💋</div>
-<div class="floating" style="left:30%;animation-delay:2s;">❤️</div>
-<div class="floating" style="left:55%;animation-delay:4s;">😘</div>
-<div class="floating" style="left:80%;animation-delay:1s;">💖</div>
+<div class="floating" style="left:25%;animation-delay:2s">❤️</div>
+<div class="floating" style="left:45%;animation-delay:4s">😘</div>
+<div class="floating" style="left:65%;animation-delay:1s">💖</div>
+<div class="floating" style="left:85%;animation-delay:6s">💕</div>
 
 <div class="container">
 
+<div id="login" class="glass">
+
 <h1>💋 Aleena ❤️ Abdul 💋</h1>
+<p class="subtitle">Special Couple Edition</p>
 
-<div id="login">
-    <input type="text" id="name" placeholder="Enter Name">
-    <br>
+<input id="name" placeholder="Enter Your Name">
 
-    <select id="gender">
-        <option value="boy">👦 Boy</option>
-        <option value="girl">👧 Girl</option>
-    </select>
-    <br>
+<select id="role">
+<option value="boy">👦 Boy</option>
+<option value="girl">👧 Girl</option>
+</select>
 
-    <button onclick="startGame()">Start ❤️</button>
+<button onclick="startGame()">Unlock ❤️</button>
+
 </div>
 
-<div id="game" style="display:none;">
+<div id="game" class="glass" style="display:none">
 
-    <h3 id="welcome"></h3>
+<h2 id="welcome"></h2>
 
-    <button onclick="truth()">😇 Truth</button>
-    <button onclick="dare()">😈 Dare</button>
-    <button onclick="partner()">🤝 Partner</button>
+<div class="score">
+Love Score ❤️ : <span id="score">0</span>
+</div>
 
-    <div class="card" id="question">
-        Ready to Play? ❤️
-    </div>
+<button class="truthBtn" onclick="truth()">😇 Truth</button>
+<button class="dareBtn" onclick="dare()">😈 Dare</button>
+<button class="partnerBtn" onclick="partner()">🤝 Partner</button>
+
+<div id="question" class="card">
+Choose a category ❤️
+</div>
+
+<button class="nextBtn" onclick="randomChallenge()">🎲 Random</button>
 
 </div>
 
@@ -111,96 +161,167 @@ button{
 <script>
 
 let role="boy";
+let score=0;
 
 const boyTruths=[
 "What is your favorite thing about Aleena?",
 "When did you first realize you liked Aleena?",
-"Which photo of Aleena is your favorite?",
 "What is your dream date with Aleena?",
-"What is the cutest thing Aleena does?"
+"What memory with Aleena makes you smile instantly?",
+"What is the cutest thing Aleena does?",
+"What is one thing you admire most about Aleena?",
+"What nickname would you give Aleena?",
+"Which picture of Aleena is your favorite?",
+"What song reminds you of Aleena?",
+"What is one thing you want to do together in the future?"
 ];
 
 const girlTruths=[
-"What is your favorite thing about Abdul?",
 "What was your first impression of Abdul?",
-"What is Abdul's most attractive feature?",
+"What is Abdul's most attractive quality?",
+"When did you realize you liked Abdul?",
 "What is your favorite memory with Abdul?",
-"Have you ever re-read Abdul's messages?"
+"What is the sweetest thing Abdul has done?",
+"Which photo of Abdul is your favorite?",
+"What song reminds you of Abdul?",
+"What makes Abdul special to you?",
+"What is your dream date with Abdul?",
+"What is one thing you never told Abdul?"
 ];
 
 const boyDares=[
-"Send Aleena 10 heart emojis ❤️",
-"Record a voice note saying her name.",
-"Tell Aleena 3 things you like about her.",
+"Send Aleena 15 heart emojis ❤️",
+"Tell Aleena 3 things you admire about her.",
 "Send your favorite photo of Aleena.",
-"Give Aleena a cute nickname."
+"Record a 10-second voice note for Aleena.",
+"Give Aleena a cute nickname.",
+"Send a selfie right now 📸",
+"Tell Aleena your favorite memory together.",
+"Send a romantic song.",
+"Text Aleena something sweet.",
+"Describe Aleena using only 3 emojis."
 ];
 
 const girlDares=[
-"Send Abdul a flying kiss selfie 💋",
-"Tell Abdul something sweet.",
-"Send Abdul 10 kiss emojis 😘",
+"Send Abdul a selfie with a flying kiss 💋",
+"Send Abdul 15 kiss emojis 😘",
 "Give Abdul a romantic nickname.",
-"Send a voice note saying 'I miss you'."
+"Tell Abdul something sweet.",
+"Record a voice note saying his name.",
+"Send Abdul your favorite picture of him.",
+"Share your favorite memory together.",
+"Send a romantic song.",
+"Describe Abdul using only emojis.",
+"Tell Abdul one thing you appreciate about him."
+];
+
+const spicyTruths=[
+"Have you ever blushed reading your partner's message?",
+"What compliment from your partner do you remember most?",
+"What is your favorite thing your partner wears?",
+"Have you ever waited eagerly for their text?",
+"What is one thing your partner does that makes your heart race?"
+];
+
+const spicyDares=[
+"Send a flirty selfie 😉",
+"Send a message saying what you miss most about them.",
+"Tell your partner one thing you find attractive about them.",
+"Send a voice note with a sweet compliment.",
+"Send a 💋 emoji and a mystery message."
 ];
 
 const partnerDares=[
-"Ask your partner their favorite memory with you ❤️",
-"Ask your partner to rate your smile 😘",
-"Ask your partner for a cute selfie 📸",
+"Ask your partner their favorite memory with you.",
+"Ask your partner to rate your smile from 1-10.",
+"Ask your partner for a cute selfie.",
 "Ask your partner what they admire most about you.",
-"Ask your partner what song reminds them of you 🎶"
+"Ask your partner what song reminds them of you.",
+"Ask your partner for a voice note.",
+"Ask your partner for a nickname.",
+"Ask your partner their dream date.",
+"Ask your partner their favorite photo of you.",
+"Ask your partner what first attracted them to you."
 ];
 
-function random(arr){
-    return arr[Math.floor(Math.random()*arr.length)];
+function pick(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function addScore(){
+score++;
+document.getElementById("score").innerText=score;
+
+if(score===10){
+document.getElementById("question").innerHTML=
+"🎁 Surprise Unlocked! ❤️<br><br>Screenshot this and send: 'You make my days brighter 💕'";
+}
 }
 
 function startGame(){
 
-    let name=document.getElementById("name").value.trim().toLowerCase();
+let name=document.getElementById("name").value.trim().toLowerCase();
 
-    const allowed=[
-        "aleena",
-        "abdul",
-        "abdul rehman",
-        "abdulrehman"
-    ];
+let allowed=[
+"aleena",
+"abdul",
+"abdul rehman",
+"abdulrehman"
+];
 
-    if(!allowed.includes(name)){
-        alert("❌ Access Denied 💋 Only Aleena & Abdul can enter ❤️");
-        return;
-    }
+if(!allowed.includes(name)){
+alert("❌ Access Denied ❤️");
+return;
+}
 
-    role=document.getElementById("gender").value;
+role=document.getElementById("role").value;
 
-    document.getElementById("login").style.display="none";
-    document.getElementById("game").style.display="block";
+document.getElementById("login").style.display="none";
+document.getElementById("game").style.display="block";
 
-    document.getElementById("welcome").innerHTML=
-    "Welcome ❤️";
+document.getElementById("welcome").innerHTML=
+"Welcome ❤️";
 }
 
 function truth(){
 
-    if(role==="boy"){
-        document.getElementById("question").innerHTML=random(boyTruths);
-    }else{
-        document.getElementById("question").innerHTML=random(girlTruths);
-    }
+let pool = role==="boy" ? boyTruths : girlTruths;
+
+if(Math.random()<0.25){
+document.getElementById("question").innerHTML=pick(spicyTruths);
+}else{
+document.getElementById("question").innerHTML=pick(pool);
+}
+
+addScore();
 }
 
 function dare(){
 
-    if(role==="boy"){
-        document.getElementById("question").innerHTML=random(boyDares);
-    }else{
-        document.getElementById("question").innerHTML=random(girlDares);
-    }
+let pool = role==="boy" ? boyDares : girlDares;
+
+if(Math.random()<0.25){
+document.getElementById("question").innerHTML=pick(spicyDares);
+}else{
+document.getElementById("question").innerHTML=pick(pool);
+}
+
+addScore();
 }
 
 function partner(){
-    document.getElementById("question").innerHTML=random(partnerDares);
+document.getElementById("question").innerHTML=pick(partnerDares);
+addScore();
+}
+
+function randomChallenge(){
+
+let num=Math.floor(Math.random()*3);
+
+if(num===0) truth();
+if(num===1) dare();
+if(num===2) partner();
+
 }
 
 </script>
