@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aleena Loves Abdul - Truth or Dare</title>
+    <title>Aleena Loves Abdul - Truth or Dare 💋</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap');
        
@@ -29,7 +29,7 @@
         }
         h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: 2.6rem; 
+            font-size: 2.5rem; 
             margin: 15px 0 8px; 
             text-shadow: 0 3px 10px rgba(0,0,0,0.3);
         }
@@ -70,7 +70,7 @@
             padding: 28px 20px;
             border-radius: 22px;
             margin: 25px 0;
-            min-height: 160px;
+            min-height: 170px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,30 +93,30 @@
 </head>
 <body>
     <div class="container">
-        <h1>🔥 Aleena Loves Abdul 🔥</h1>
-        <h2>Truth or Dare</h2>
+        <h1>🔥 Aleena Loves Abdul 💋🔥</h1>
+        <h2>Truth or Dare 😘</h2>
 
-        <!-- Name Input Screen -->
+        <!-- Name Input -->
         <div id="nameScreen">
-            <p style="font-size:1.25rem; margin:20px 0 10px;">Enter Your Name</p>
+            <p style="font-size:1.25rem; margin:20px 0 10px;">Enter Your Name 💕</p>
             <input type="text" id="playerName" placeholder="Aleena or Abdul Rehman" autocomplete="off">
-            <button onclick="startGame()">Start Game ❤️</button>
+            <button onclick="startGame()">Start Game ❤️💋</button>
         </div>
 
         <!-- Game Screen -->
         <div id="gameScreen" style="display: none;">
             <div style="margin:25px 0 15px;">
-                <button onclick="getTruth()" style="background:#ff3366;color:white;">Truth 😇</button>
-                <button onclick="getDare()" style="background:#ff3366;color:white;">Dare 😈</button>
+                <button onclick="getTruth()" style="background:#ff3366;color:white;">Truth 😇💋</button>
+                <button onclick="getDare()" style="background:#ff3366;color:white;">Dare 😈😘</button>
             </div>
 
             <div id="level" class="level"></div>
-            <div id="question" class="card">Welcome! Ready to play a romantic & spicy game? 🔥</div>
+            <div id="question" class="card">Hi there! Ready for Romantic, Flirty & Spicy fun? 💋🔥</div>
             
-            <button onclick="newOne()" style="background:#660033;color:white;">Next Question</button>
+            <button onclick="newOne()" style="background:#660033;color:white;">Next Question 💕</button>
             
             <div class="footer">
-                Made by Abdul Rehman ❤️
+                Made by Abdul Rehman ❤️💋
             </div>
         </div>
     </div>
@@ -125,64 +125,63 @@
         let playerName = "";
         let isGirl = false;
 
-        // === GIRL (Aleena style) ===
+        // === GIRL TRUTHS ===
         const girlTruths = [
-            "What do you find most attractive about Abdul?",
-            "What is the most romantic thing Abdul has ever done for you?",
-            "Describe your dream date with Abdul.",
-            "What is one naughty thought you've had about Abdul recently?",
-            "What turns you on the most about Abdul?",
-            "Have you ever had a romantic dream about Abdul?",
-            "What is your favorite way Abdul shows you love?",
-            "If you could kiss Abdul anywhere right now, where would it be?",
-            "What is something intimate you want to try with Abdul?",
-            "How would you describe your feelings when Abdul touches you?"
+            "What do you find most attractive about Abdul? 💋",
+            "What is the most romantic thing Abdul has ever done for you? 😘",
+            "Describe your dream date with Abdul 💕",
+            "What is one naughty/flirty thought you've had about Abdul recently? 🔥",
+            "Which part of Abdul's body turns you on the most? 💋",
+            "Have you ever had a hot dream about Abdul? 😈",
+            "What intimate thing do you want Abdul to do to you? 👄",
+            "What is your darkest fantasy involving Abdul? 😘",
+            "How would you describe the feeling when Abdul kisses you? 💋",
+            "What turns you on the most when thinking about Abdul? 🔥"
         ];
 
+        // === GIRL DARES ===
         const girlDares = [
-            "Send a cute selfie with a flying kiss to Abdul.",
-            "Record a voice note saying something sweet and flirty to Abdul.",
-            "Do a romantic dance for 10 seconds and send video.",
-            "Write 'I ❤️ Abdul' on your hand and send photo.",
-            "Send a photo of you in your favorite outfit.",
-            "Call Abdul and say his name in the sweetest way.",
-            "Send a romantic voice note describing your feelings.",
-            // Mild Hot
-            "Send a photo wearing his favorite color.",
-            "Take off one accessory and send a teasing photo.",
-            // Few 18+
-            "Send a mirror selfie in nightwear.",
-            "Record a short seductive voice note for Abdul."
+            "Send a cute selfie with a flying kiss to Abdul 😘",
+            "Record a romantic & flirty voice note for Abdul 💕",
+            "Do a slow romantic dance for 10 seconds and send video 💃",
+            "Write 'I ❤️ Abdul' on your hand and send photo 💋",
+            "Send a photo in your favorite outfit looking beautiful 😘",
+            "Say something sweet and flirty about Abdul in a voice note 💕",
+            "Send a mirror selfie blowing a kiss 😘",
+            "Send a photo in nightwear or lingerie (one view) 💋",
+            "Record a voice note moaning Abdul's name softly 👄",
+            "Tell your darkest fantasy with Abdul in a voice note 😈",
+            "Do a seductive pose and send photo 🔥"
         ];
 
-        // === BOY (Abdul style) ===
+        // === BOY TRUTHS ===
         const boyTruths = [
-            "What do you find most beautiful about Aleena?",
-            "What is the most romantic thing you want to do for Aleena?",
-            "Describe your ideal romantic evening with Aleena.",
-            "What is one naughty thought you've had about Aleena recently?",
-            "Which part of Aleena attracts you the most?",
-            "Have you ever had a romantic or hot dream about Aleena?",
-            "What makes you feel closest to Aleena?",
-            "What is your favorite memory with Aleena?",
-            "What intimate thing do you want to experience with Aleena?",
-            "How does Aleena make you feel special?"
+            "What do you find most beautiful about Aleena? 💋",
+            "What is the most romantic thing you want to do for Aleena? 😘",
+            "Describe your ideal hot date with Aleena 💕",
+            "What is one naughty thought you've had about Aleena recently? 🔥",
+            "Which part of Aleena's body attracts you the most? 💋",
+            "Have you ever had a romantic or hot dream about Aleena? 😈",
+            "What intimate thing do you want to do with Aleena? 👄",
+            "What is your darkest fantasy with Aleena? 😘",
+            "How does Aleena make your heart race? 💓",
+            "What turns you on the most about Aleena? 🔥"
         ];
 
+        // === BOY DARES ===
         const boyDares = [
-            "Send a handsome selfie with a flying kiss.",
-            "Record a romantic voice note for Aleena.",
-            "Do a cute or romantic pose and send photo.",
-            "Write 'I ❤️ Aleena' on your hand and send photo.",
-            "Sing a romantic line from a song for Aleena.",
-            "Send a photo of you looking your best.",
-            "Say something sweet about Aleena in a voice note.",
-            // Mild Hot
-            "Send a shirtless photo (if comfortable).",
-            "Do a slow romantic dance and send video.",
-            // Few 18+
-            "Send a mirror selfie in your favorite look.",
-            "Record a short flirty voice note describing your desire."
+            "Send a handsome selfie with a flying kiss 😘",
+            "Record a romantic & flirty voice note for Aleena 💕",
+            "Do a romantic pose and send photo 💋",
+            "Write 'I ❤️ Aleena' on your hand and send photo 😘",
+            "Sing a romantic line for Aleena and send video 🎤",
+            "Send a photo looking your best 💪",
+            "Say something hot and sweet about Aleena in a voice note 🔥",
+            "Send a shirtless photo (one view only) 💋",
+            "Record a voice note moaning Aleena's name seductively 👄",
+            "Do a slow sexy dance and send short video 😈",
+            "Tell your darkest fantasy with Aleena in a voice note 😘",
+            "Send a mirror selfie in underwear (if comfortable) 🔥"
         ];
 
         function getRandom(arr) {
@@ -193,28 +192,26 @@
             playerName = document.getElementById("playerName").value.trim();
             if (!playerName) playerName = "Baby";
 
-            // Detect gender roughly
-            const lowerName = playerName.toLowerCase();
-            isGirl = lowerName.includes("aleena") || lowerName.includes("girl") || 
-                     lowerName.includes("princess") || lowerName.includes("queen");
+            const lower = playerName.toLowerCase();
+            isGirl = lower.includes("aleena") || lower.includes("girl") || 
+                     lower.includes("princess") || lower.includes("queen");
 
             document.getElementById("nameScreen").style.display = "none";
             document.getElementById("gameScreen").style.display = "block";
             
-            document.getElementById("question").innerHTML = `Hi ${playerName}! Let's play a romantic & spicy Truth or Dare ❤️`;
+            document.getElementById("question").innerHTML = `Hi ${playerName}! Ready for Romantic, Flirty & Spicy Truth or Dare? 💋🔥`;
         }
 
         function getTruth() {
-            document.getElementById('level').innerHTML = "❤️ Truth (Romantic + Flirty)";
+            document.getElementById('level').innerHTML = "❤️ Truth (Romantic + Flirty) 💋";
             let q = isGirl ? getRandom(girlTruths) : getRandom(boyTruths);
-            document.getElementById('question').innerHTML = q + "<br><br><b>Screenshot & Send in Chat</b>";
+            document.getElementById('question').innerHTML = q + "<br><br><b>Screenshot & Send in Chat 💕</b>";
         }
 
         function getDare() {
-            document.getElementById('level').innerHTML = "😈 Dare (Romantic + Hot)";
+            document.getElementById('level').innerHTML = "😈 Dare (Flirty + Hot) 😘";
             let d = isGirl ? getRandom(girlDares) : getRandom(boyDares);
-            d = d.replace("Abdul", "Abdul").replace("Aleena", "Aleena");
-            document.getElementById('question').innerHTML = d + "<br><br><b>Screenshot & Send in Chat</b>";
+            document.getElementById('question').innerHTML = d + "<br><br><b>Screenshot & Send in Chat 💋</b>";
         }
 
         function newOne() {
@@ -225,7 +222,6 @@
             }
         }
 
-        // Auto focus
         window.onload = () => {
             document.getElementById("playerName").focus();
         };
