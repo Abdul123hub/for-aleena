@@ -8,125 +8,197 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
         
         body {
-            background: linear-gradient(135deg, #0a0a0a, #1a1428);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             font-family: 'Inter', sans-serif;
-            color: #e0d4ff;
+            color: #f0f0f5;
             min-height: 100vh;
-            padding: 15px;
             margin: 0;
+            padding: 15px;
         }
         
         .container {
             max-width: 440px;
             margin: 0 auto;
-            background: rgba(15, 15, 25, 0.95);
-            border-radius: 24px;
+            background: rgba(20, 20, 35, 0.95);
+            border-radius: 28px;
             padding: 25px 20px;
-            box-shadow: 0 15px 40px rgba(100, 50, 200, 0.25);
-            border: 1px solid rgba(150, 100, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
         
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.25rem;
             text-align: center;
-            margin-bottom: 6px;
-            background: linear-gradient(to right, #d8b4fe, #c084fc);
+            margin-bottom: 8px;
+            background: linear-gradient(to right, #a5b4fc, #c4b5fd);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
-        .subtitle { text-align: center; color: #a78bfa; font-size: 1.15rem; margin-bottom: 25px; }
+        .subtitle {
+            text-align: center;
+            color: #b3b3ff;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
         
-        .tabs { display: flex; background: rgba(30, 30, 50, 0.8); border-radius: 50px; padding: 6px; margin: 20px 0; }
-        .tab { flex: 1; padding: 12px; text-align: center; border-radius: 50px; cursor: pointer; font-weight: 500; }
-        .tab.active { background: #8b5cf6; color: white; }
+        .tabs {
+            display: flex;
+            background: rgba(40, 40, 60, 0.8);
+            border-radius: 50px;
+            padding: 5px;
+            margin: 25px 0;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 13px;
+            text-align: center;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            background: #6366f1;
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
         
         button {
             width: 100%;
             padding: 16px;
-            margin: 10px 0;
+            margin: 12px 0;
             border: none;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
             font-size: 1.1rem;
+            transition: all 0.3s;
         }
         
-        .truth-btn { background: linear-gradient(90deg, #7c3aed, #a855f7); color: white; }
-        .dare-btn { background: linear-gradient(90deg, #db2777, #f472b6); color: white; }
-        .letter-btn { background: linear-gradient(90deg, #c026d3, #db2777); color: white; }
+        button:active {
+            transform: scale(0.96);
+        }
+        
+        .truth-btn { background: linear-gradient(90deg, #6366f1, #818cf8); }
+        .dare-btn { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+        .letter-btn { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
         
         .card {
-            background: rgba(30, 25, 50, 0.9);
-            border: 2px solid #a78bfa;
-            padding: 20px;
-            border-radius: 20px;
+            background: rgba(30, 30, 50, 0.9);
+            border: 1px solid #818cf8;
+            padding: 25px;
+            border-radius: 22px;
             margin: 20px 0;
-            min-height: 240px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            line-height: 1.7;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s ease;
         }
         
-        img {
-            max-width: 100%;
-            border-radius: 16px;
-            margin: 12px 0;
-            border: 2px solid #c4b5fd;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .footer { text-align: center; margin-top: 35px; opacity: 0.75; font-size: 0.95rem; }
+        textarea {
+            width: 100%;
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid #6366f1;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1.05rem;
+            resize: vertical;
+            min-height: 140px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Abdul Rehman & Aleena</h1>
-        <p class="subtitle">Our Private World 💜</p>
+        <p class="subtitle">Our Romantic Space 💜</p>
 
         <div class="tabs">
             <div class="tab active" onclick="switchTab(0)">Truth or Dare</div>
             <div class="tab" onclick="switchTab(1)">Love Letter</div>
-            <div class="tab" onclick="switchTab(2)">Cute Challenges</div>
+            <div class="tab" onclick="switchTab(2)">Cute Ideas</div>
         </div>
 
         <!-- Truth or Dare -->
         <div id="tab0">
             <button onclick="getTruth()" class="truth-btn">Truth 💜</button>
             <button onclick="getDare()" class="dare-btn">Dare ❤️</button>
-            <div id="level" style="text-align:center; margin:15px 0; color:#c4b5fd;"></div>
-            <div id="question" class="card">Choose Truth or Dare 💕</div>
-            <button onclick="newOne()" style="background:#4c1d95;">Next Question</button>
+            <div id="level" style="text-align:center; margin:15px 0; color:#c4b5fd; font-weight:600;"></div>
+            <div id="question" class="card">Choose a mode and enjoy 💕</div>
+            <button onclick="newOne()" style="background:#4338ca;">Next Question</button>
         </div>
 
         <!-- Love Letter -->
         <div id="tab1" style="display:none;">
-            <textarea id="letterText" rows="5" placeholder="Write something sweet..."></textarea>
-            <button onclick="generateLoveLetter()" class="letter-btn">Create Beautiful Card 💌</button>
-            <div id="letterCard" class="card" style="display:none;"></div>
-            <button onclick="shareWhatsApp()" style="background:#22c55e;">Share on WhatsApp</button>
+            <textarea id="letterText" placeholder="Write your heartfelt message for Aleena / Abdul Rehman..."></textarea>
+            <button onclick="generateLoveLetter()" class="letter-btn">✨ Create Beautiful Card</button>
+            <div id="letterCard" class="card" style="display:none; flex-direction:column;"></div>
+            <button onclick="shareWhatsApp()" style="background:#22c55e;">Share on WhatsApp 📲</button>
         </div>
 
-        <!-- Challenges -->
+        <!-- Cute Ideas -->
         <div id="tab2" style="display:none;">
-            <button onclick="getCuteChallenge()" style="background:linear-gradient(90deg, #7c3aed, #db2777);">Get Cute Challenge</button>
-            <div id="cuteCard" class="card">Click for special challenges 💕</div>
+            <button onclick="getCuteChallenge()" style="background:linear-gradient(90deg, #6366f1, #8b5cf6);">Get Cute Challenge 💕</button>
+            <div id="cuteCard" class="card">Click above for sweet ideas...</div>
         </div>
 
         <div class="footer">
-            Made with love by Abdul Rehman ❤️<br>Only for Aleena
+            Made with ❤️ by Abdul Rehman<br>
+            Only for Aleena
         </div>
     </div>
 
     <script>
         let isAleena = false;
 
-        // ✅ Your exact file names
-        const myPic = "abdul-rehman.jpg.jpeg";
-        const aleenaPic = "aleena.jpg.jpeg";
+        const girlTruths = [
+            "What do you love most about Abdul Rehman? 💜",
+            "Describe your dream date with him 💕",
+            "What is one thing Abdul does that makes you smile?",
+            "What naughty thought have you had about him recently? 🔥",
+            "How does Abdul make you feel special?"
+        ];
 
-        const girlTruths = ["What do you love most about Abdul Rehman? 💜", "Describe your dream date with him 💕", "What turns you on about Abdul?"];
-        const girlDares = ["Send flying kiss video 💋", "Record voice note with his name 😘", "Send photo in nightwear 💕"];
-        const boyTruths = ["What do you love most about Aleena? 💜", "Describe your ideal night with her 💕"];
-        const boyDares = ["Send shirtless photo 💪", "Record voice note moaning her name 👄"];
+        const girlDares = [
+            "Send a cute flying kiss video 💋",
+            "Record a sweet voice note for Abdul Rehman 😘",
+            "Send a photo in your favourite outfit 💕",
+            "Do a slow romantic dance and send video",
+            "Write 'I ❤️ Abdul Rehman' on your hand"
+        ];
+
+        const boyTruths = [
+            "What do you love most about Aleena? 💜",
+            "Describe your perfect date with her 💕",
+            "What is the sweetest thing Aleena has done for you?",
+            "What turns you on about Aleena? 🔥"
+        ];
+
+        const boyDares = [
+            "Send a handsome selfie with flying kiss 😘",
+            "Record a romantic voice note for Aleena 💕",
+            "Do a cute romantic pose and send photo",
+            "Sing one romantic line for her 🎤"
+        ];
 
         function getRandom(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
@@ -156,15 +228,13 @@
         }
 
         function generateLoveLetter() {
-            const text = document.getElementById("letterText").value.trim() || "I love you so much 💜";
+            const text = document.getElementById("letterText").value.trim() || "You are my everything 💜";
             const card = document.getElementById("letterCard");
-            const pic = isAleena ? aleenaPic : myPic;
-
+            
             card.innerHTML = `
-                <img src="${pic}" alt="Our Love" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\"color:#f9a8d4;\">❌ Photo not found.<br>Check file name.</p>'">
-                <strong style="color:#c4b5fd; font-size:1.3rem;">💌 To My ${isAleena ? 'Abdul Rehman' : 'Aleena'} 💌</strong><br><br>
-                ${text}<br><br>
-                <em>Forever Yours ❤️</em>
+                <strong style="font-size:1.5rem; color:#c4b5fd;">💌 Love Letter 💌</strong><br><br>
+                <p style="font-style:italic; font-size:1.1rem;">${text}</p><br>
+                <em style="color:#a5b4fc;">Forever Yours ❤️<br>Abdul Rehman & Aleena</em>
             `;
             card.style.display = "block";
         }
@@ -173,12 +243,19 @@
             const card = document.getElementById("letterCard");
             if (card.style.display === "block") {
                 window.open(`https://wa.me/?text=${encodeURIComponent(card.innerText)}`, '_blank');
+            } else {
+                alert("Pehle Love Letter banao 💌");
             }
         }
 
         function getCuteChallenge() {
-            const challenges = ["Send 10 kisses in voice note 💋💋💋", "Write 'Abdul Rehman ❤️ Aleena' and send photo"];
-            document.getElementById('cuteCard').innerHTML = getRandom(challenges) + "<br><br><b>Send to your love 💕</b>";
+            const ideas = [
+                "Send 8 kisses in a voice note 💋💋💋",
+                "Write 'Abdul Rehman ❤️ Aleena' and send photo",
+                "Record a video saying I love you with flying kisses 😘",
+                "Tell your partner 3 reasons why you love them"
+            ];
+            document.getElementById('cuteCard').innerHTML = getRandom(ideas) + "<br><br><b>Send to your love now 💕</b>";
         }
 
         window.onload = () => {
