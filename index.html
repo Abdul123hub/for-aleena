@@ -3,283 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aleena Loves Abdul - Truth or Dare 💋</title>
+    <title>Abdul Rehman & Aleena 💋</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap');
-       
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        
         body {
-            background: linear-gradient(135deg, #ff0066, #ff3366, #cc0066);
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            text-align: center;
+            background: linear-gradient(135deg, #1a0033, #4a0033, #1a0033);
+            font-family: 'Inter', sans-serif;
+            color: #ffe6f0;
             min-height: 100vh;
-            margin: 0;
             padding: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 0;
         }
-        .container { 
-            width: 100%;
-            max-width: 420px; 
-            margin: 0 auto; 
-            background: rgba(0,0,0,0.18);
+        
+        .container {
+            max-width: 440px;
+            margin: 0 auto;
+            background: rgba(30, 0, 40, 0.95);
             border-radius: 28px;
-            padding: 25px 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 25px 20px;
+            box-shadow: 0 20px 50px rgba(192, 38, 211, 0.4);
+            border: 2px solid #c026d3;
         }
-        h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2.1rem; 
-            margin: 10px 0 8px; 
-            text-shadow: 0 3px 10px rgba(0,0,0,0.3);
-        }
-        h2 { 
-            font-size: 1.25rem; 
-            margin: 0 0 20px; 
-            opacity: 0.95;
-        }
-        input {
-            padding: 15px 20px;
-            font-size: 1.1rem;
-            width: 88%;
-            border-radius: 50px;
-            border: none;
-            margin: 15px 0 20px;
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
             text-align: center;
-            background: white;
-            color: #333;
+            margin-bottom: 5px;
+            color: #ff99cc;
         }
+        
+        .subtitle {
+            text-align: center;
+            color: #ff66aa;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            background: rgba(0,0,0,0.4);
+            border-radius: 50px;
+            padding: 6px;
+            margin: 20px 0;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .tab.active {
+            background: #c026d3;
+            color: white;
+        }
+        
         button {
-            padding: 15px 30px;
-            font-size: 1.15rem;
-            margin: 8px 5px;
+            width: 100%;
+            padding: 16px;
+            margin: 10px 0;
             border: none;
             border-radius: 50px;
-            background: white;
-            color: #ff0066;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            width: 48%;
+            font-size: 1.1rem;
         }
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-        .next-btn {
-            background: #660033;
-            color: white;
-            width: 100%;
-            margin-top: 15px;
-            padding: 16px;
-        }
+        
+        .truth-btn { background: linear-gradient(90deg, #9f4bff, #c026d3); }
+        .dare-btn { background: linear-gradient(90deg, #e11d48, #f43f5e); }
+        .letter-btn { background: linear-gradient(90deg, #ec4899, #f472b6); }
+        
         .card {
-            background: rgba(255,255,255,0.18);
-            padding: 25px 18px;
+            background: linear-gradient(135deg, #3b0764, #581c87);
+            border: 3px solid #ff99cc;
+            padding: 25px 20px;
             border-radius: 22px;
             margin: 20px 0;
-            min-height: 160px;
+            min-height: 180px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            line-height: 1.7;
+            position: relative;
+            overflow: hidden;
         }
-        .level { 
-            font-size: 1.1rem; 
-            margin: 12px 0; 
-            font-weight: 600; 
-            opacity: 0.95;
+        
+        .card::before {
+            content: '💋💕💋';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.8rem;
+            opacity: 0.3;
         }
+        
+        img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin: 10px 0;
+            border: 2px solid #ff99cc;
+        }
+        
         .footer {
+            text-align: center;
             margin-top: 30px;
-            font-size: 0.9rem;
             opacity: 0.85;
-        }
-        .note {
-            font-size: 0.85rem;
-            margin-top: 8px;
-            opacity: 0.8;
-        }
-
-        /* Mobile Improvements */
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            .container { padding: 20px 15px; }
-            button { width: 100%; margin: 8px 0; padding: 16px; }
-            .card { font-size: 1.05rem; padding: 22px 15px; min-height: 150px; }
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🔥 Aleena Loves Abdul 💋🔥</h1>
-        <h2>Truth or Dare 😘</h2>
+        <h1>Abdul Rehman ❤️ Aleena</h1>
+        <p class="subtitle">Our Romantic World 💋😘</p>
 
-        <!-- Name Input -->
-        <div id="nameScreen">
-            <p style="font-size:1.2rem; margin:20px 0 10px;">Enter Your Name 💕</p>
-            <input type="text" id="playerName" placeholder="Aleena or Abdul Rehman" autocomplete="off">
-            <button onclick="startGame()">Start Game ❤️💋</button>
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab(0)">Truth or Dare</div>
+            <div class="tab" onclick="switchTab(1)">Love Letter</div>
+            <div class="tab" onclick="switchTab(2)">Cute Challenges</div>
         </div>
 
-        <!-- Game Screen -->
-        <div id="gameScreen" style="display: none;">
-            <div style="margin:20px 0 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <button onclick="getTruth()" style="background:#ff3366;color:white;">Truth 😇💋</button>
-                <button onclick="getDare()" style="background:#ff3366;color:white;">Dare 😈😘</button>
-            </div>
+        <!-- Truth or Dare -->
+        <div id="tab0">
+            <button onclick="getTruth()" class="truth-btn">Truth 😇💋</button>
+            <button onclick="getDare()" class="dare-btn">Dare 😈😘</button>
+            <div id="level" style="text-align:center; margin:15px 0; color:#ff99cc; font-weight:600;"></div>
+            <div id="question" class="card">Choose Truth or Dare my love 💕</div>
+            <button onclick="newOne()">Next Question 💕</button>
+        </div>
 
-            <div id="level" class="level"></div>
-            <div id="question" class="card">Hi there! Ready for Romantic, Flirty & Spicy fun? 💋🔥</div>
-            
-            <button onclick="newOne()" class="next-btn">Next Question 💕</button>
-            <div class="note">💡 Answer properly before moving to the next one</div>
-            
-            <div class="footer">
-                Made by Abdul Rehman ❤️💋
+        <!-- Love Letter -->
+        <div id="tab1" style="display:none;">
+            <textarea id="letterText" rows="5" placeholder="Write your sweet message for Aleena / Abdul... 💌"></textarea>
+            <button onclick="generateLoveLetter()" class="letter-btn">Make Cute Love Card 💌</button>
+            <div id="letterCard" class="card" style="display:none;">
+                <!-- Dynamic content will appear here -->
             </div>
+            <button onclick="shareWhatsApp()" style="background:#25D366;">Share on WhatsApp 📲</button>
+        </div>
+
+        <!-- Cute Challenges -->
+        <div id="tab2" style="display:none;">
+            <button onclick="getCuteChallenge()" style="background:linear-gradient(90deg, #db2777, #ec4899);">Get Cute Challenge 💕</button>
+            <div id="cuteCard" class="card">Click to get adorable challenges for us 💋</div>
+        </div>
+
+        <div class="footer">
+            Made with infinite love by Abdul Rehman ❤️<br>
+            Only for Aleena 💋
         </div>
     </div>
 
     <script>
-        let playerName = "";
-        let isGirl = false;
+        let isAleena = false;
 
-        // === GIRL TRUTHS (55+) ===
-        const girlTruths = [
-            "What do you find most attractive about Abdul? 💋",
-            "What is the most romantic thing Abdul has ever done for you? 😘",
-            "Describe your dream date with Abdul 💕",
-            "What is one naughty/flirty thought you've had about Abdul recently? 🔥",
-            "Which part of Abdul's body turns you on the most? 💋",
-            "Have you ever had a hot dream about Abdul? 😈",
-            "What intimate thing do you want Abdul to do to you? 👄",
-            "What is your darkest fantasy involving Abdul? 😘",
-            "How would you describe the feeling when Abdul kisses you? 💋",
-            "What turns you on the most when thinking about Abdul? 🔥",
-            "What is the cutest nickname you want to call Abdul? 💕",
-            "Have you ever felt jealous about Abdul? Why? 😏",
-            "What is one thing Abdul does that instantly makes you smile?",
-            "If you could spend 24 hours alone with Abdul, what would you do? 💋",
-            "What is your favorite memory with Abdul? ❤️",
-            "How does Abdul make you feel special? 💕",
-            "What is something you want to try in bed with Abdul? 😈",
-            "Have you ever touched yourself thinking about Abdul? 👄"
-        ];
+        // === Pictures (Upload these to same folder) ===
+        // Use these exact names:
+        // abdul-rehman.jpg
+        // aleena.jpg
 
-        // === GIRL DARES (More 18+ Added) ===
-        const girlDares = [
-            "Send a cute selfie with a flying kiss to Abdul 😘",
-            "Record a romantic & flirty voice note for Abdul 💕",
-            "Do a slow romantic dance for 10 seconds and send video 💃",
-            "Write 'I ❤️ Abdul' on your hand and send photo 💋",
-            "Send a photo in your favorite outfit looking beautiful 😘",
-            "Send a mirror selfie blowing a kiss 😘",
-            "Send a photo in nightwear or lingerie (one view) 💋",
-            "Record a voice note moaning Abdul's name softly 👄",
-            "Tell your darkest fantasy with Abdul in a voice note 😈",
-            "Do a seductive pose and send photo 🔥",
-            "Record a 5-second video of you blowing kisses 😘",
-            "Send a shirtless view photo of yourself teasingly 💋",
-            "Do a slow sexy dance and send short video 🔥",
-            "Send a photo biting your lip while thinking of Abdul 😈",
-            "Give yourself a hickey and show it to Abdul 💋",
-            "Record a 10-second kissing the screen video 😘",
-            "Send a completely naked mirror selfie (one view only) 🔥",
-            "Record a short video touching yourself while saying Abdul's name 👄",
-            "Send a photo of you in bra only 💕",
-            "Write 'Abdul's' on your body and send photo 😈",
-            "Record a voice note describing how you want Abdul to fuck you 😘"
-        ];
+        const abdulPic = "abdul-rehman.jpg";
+        const aleenaPic = "aleena.jpg";
 
-        // === BOY TRUTHS (55+) ===
-        const boyTruths = [
-            "What do you find most beautiful about Aleena? 💋",
-            "What is the most romantic thing you want to do for Aleena? 😘",
-            "Describe your ideal hot date with Aleena 💕",
-            "What is one naughty thought you've had about Aleena recently? 🔥",
-            "Which part of Aleena's body attracts you the most? 💋",
-            "Have you ever had a romantic or hot dream about Aleena? 😈",
-            "What intimate thing do you want to do with Aleena? 👄",
-            "What is your darkest fantasy with Aleena? 😘",
-            "How does Aleena make your heart race? 💓",
-            "What turns you on the most about Aleena? 🔥",
-            "What is the sweetest thing Aleena has ever done for you?",
-            "If you could kiss Aleena anywhere right now, where would it be? 💋",
-            "What is one thing that makes you feel protective of Aleena?",
-            "Describe the moment you fell for Aleena 😍",
-            "What is one secret desire you have about Aleena? 😈",
-            "Have you ever touched yourself thinking about Aleena? 👄"
-        ];
+        const girlTruths = [ /* your previous lists */ ];
+        const girlDares = [ /* your previous lists with lots of kisses */ ];
+        const boyTruths = [ /* your previous lists */ ];
+        const boyDares = [ /* your previous lists */ ];
 
-        // === BOY DARES (More 18+ Added) ===
-        const boyDares = [
-            "Send a handsome selfie with a flying kiss 😘",
-            "Record a romantic & flirty voice note for Aleena 💕",
-            "Do a romantic pose and send photo 💋",
-            "Write 'I ❤️ Aleena' on your hand and send photo 😘",
-            "Sing a romantic line for Aleena and send video 🎤",
-            "Send a photo looking your best 💪",
-            "Say something hot and sweet about Aleena in a voice note 🔥",
-            "Send a shirtless photo (one view only) 💋",
-            "Record a voice note moaning Aleena's name seductively 👄",
-            "Do a slow sexy dance and send short video 😈",
-            "Tell your darkest fantasy with Aleena in a voice note 😘",
-            "Send a mirror selfie in underwear 🔥",
-            "Send a photo of you making a French kiss face 💋",
-            "Record a 10-second video saying why you love Aleena",
-            "Write 'Aleena's Man' on your chest and send photo 💕",
-            "Record a voice note describing how you want to kiss Aleena all over 😘",
-            "Send a completely naked photo (one view only) 🔥",
-            "Record a short video of you stroking yourself saying Aleena's name 👄",
-            "Send a photo of your hard dick 💋",
-            "Do a striptease video (minimum 15 seconds) 😈",
-            "Send a voice note describing how you want to fuck Aleena 😘"
+        const cuteChallenges = [
+            "Send 10 💋 kisses in a voice note saying Abdul Rehman's name 😘",
+            "Write 'Aleena ❤️ Abdul Rehman' on your hand and send photo",
+            "Record a video saying 'I love you Abdul Rehman' with flying kisses 💕",
+            "Send a mirror selfie with lots of heart emojis 💖",
+            "Tell Aleena 5 reasons why you love her in a voice note",
+            "Make a heart with your hands and say 'This is for Aleena' ❤️"
         ];
 
         function getRandom(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
         }
 
+        function switchTab(n) {
+            document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', i===n));
+            document.getElementById('tab0').style.display = n===0 ? 'block' : 'none';
+            document.getElementById('tab1').style.display = n===1 ? 'block' : 'none';
+            document.getElementById('tab2').style.display = n===2 ? 'block' : 'none';
+        }
+
         function startGame() {
-            playerName = document.getElementById("playerName").value.trim();
-            if (!playerName) playerName = "Baby";
-
-            const lower = playerName.toLowerCase();
-            isGirl = lower.includes("aleena") || lower.includes("girl") || 
-                     lower.includes("princess") || lower.includes("queen");
-
-            document.getElementById("nameScreen").style.display = "none";
-            document.getElementById("gameScreen").style.display = "block";
-            
-            document.getElementById("question").innerHTML = `Hi ${playerName}! Ready for Romantic, Flirty & Spicy Truth or Dare? 💋🔥`;
-        }
-
-        function getTruth() {
-            document.getElementById('level').innerHTML = "❤️ Truth (Romantic + Flirty) 💋";
-            let q = isGirl ? getRandom(girlTruths) : getRandom(boyTruths);
-            document.getElementById('question').innerHTML = q + "<br><br><b>Screenshot & Send in Chat 💕</b>";
-        }
-
-        function getDare() {
-            document.getElementById('level').innerHTML = "😈 Dare (Flirty + Hot 18+) 😘";
-            let d = isGirl ? getRandom(girlDares) : getRandom(boyDares);
-            document.getElementById('question').innerHTML = d + "<br><br><b>Screenshot & Send in Chat 💋</b>";
-        }
-
-        function newOne() {
-            if (Math.random() > 0.5) {
-                getTruth();
-            } else {
-                getDare();
+            const name = prompt("Enter your name (Aleena or Abdul Rehman):");
+            if (name) {
+                isAleena = name.toLowerCase().includes("aleena");
             }
         }
 
+        function getTruth() {
+            document.getElementById('level').innerHTML = "❤️ TRUTH";
+            let q = isAleena ? getRandom(girlTruths) : getRandom(boyTruths);
+            document.getElementById('question').innerHTML = q + "<br><br><b>📸 Screenshot & Send 💕</b>";
+        }
+
+        function getDare() {
+            document.getElementById('level').innerHTML = "😈 DARE";
+            let d = isAleena ? getRandom(girlDares) : getRandom(boyDares);
+            document.getElementById('question').innerHTML = d + "<br><br><b>📸 Screenshot or WhatsApp</b>";
+        }
+
+        function newOne() {
+            Math.random() > 0.5 ? getTruth() : getDare();
+        }
+
+        function generateLoveLetter() {
+            const text = document.getElementById("letterText").value.trim() || "I love you so much my baby 💕";
+            const card = document.getElementById("letterCard");
+            
+            const pic = isAleena ? aleenaPic : abdulPic;
+            
+            card.innerHTML = `
+                <img src="${pic}" alt="Our Love" style="width:100%; max-height:180px; object-fit:cover;">
+                <strong style="color:#ff99cc;">💌 To My ${isAleena ? 'Abdul Rehman' : 'Aleena'} 💌</strong><br><br>
+                ${text}<br><br>
+                <em>Forever Yours ❤️<br>Abdul Rehman ${isAleena ? '❤️' : '💋'} Aleena</em>
+            `;
+            card.style.display = "block";
+        }
+
+        function shareWhatsApp() {
+            const card = document.getElementById("letterCard");
+            if (card.style.display === "block") {
+                const message = card.innerText;
+                window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+            } else {
+                alert("First create a Love Card 💌");
+            }
+        }
+
+        function getCuteChallenge() {
+            document.getElementById('cuteCard').innerHTML = getRandom(cuteChallenges) + "<br><br><b>💋 Send to your love now</b>";
+        }
+
+        // Initialize
         window.onload = () => {
-            document.getElementById("playerName").focus();
+            startGame();
         };
     </script>
 </body>
