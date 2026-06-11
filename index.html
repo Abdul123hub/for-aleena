@@ -38,23 +38,8 @@
         
         .subtitle { text-align: center; color: #a78bfa; font-size: 1.15rem; margin-bottom: 25px; }
         
-        .tabs {
-            display: flex;
-            background: rgba(30, 30, 50, 0.8);
-            border-radius: 50px;
-            padding: 6px;
-            margin: 20px 0;
-        }
-        
-        .tab {
-            flex: 1;
-            padding: 12px;
-            text-align: center;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 500;
-        }
-        
+        .tabs { display: flex; background: rgba(30, 30, 50, 0.8); border-radius: 50px; padding: 6px; margin: 20px 0; }
+        .tab { flex: 1; padding: 12px; text-align: center; border-radius: 50px; cursor: pointer; font-weight: 500; }
         .tab.active { background: #8b5cf6; color: white; }
         
         button {
@@ -75,19 +60,19 @@
         .card {
             background: rgba(30, 25, 50, 0.9);
             border: 2px solid #a78bfa;
-            padding: 25px;
+            padding: 20px;
             border-radius: 20px;
             margin: 20px 0;
-            min-height: 190px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            min-height: 240px;
             text-align: center;
-            line-height: 1.65;
         }
         
-        img { max-width: 100%; border-radius: 16px; margin: 12px 0; border: 2px solid #c4b5fd; }
+        img {
+            max-width: 100%;
+            border-radius: 16px;
+            margin: 12px 0;
+            border: 2px solid #c4b5fd;
+        }
         
         .footer { text-align: center; margin-top: 35px; opacity: 0.75; font-size: 0.95rem; }
     </style>
@@ -107,7 +92,7 @@
         <div id="tab0">
             <button onclick="getTruth()" class="truth-btn">Truth 💜</button>
             <button onclick="getDare()" class="dare-btn">Dare ❤️</button>
-            <div id="level" style="text-align:center; margin:15px 0; color:#c4b5fd; font-weight:600;"></div>
+            <div id="level" style="text-align:center; margin:15px 0; color:#c4b5fd;"></div>
             <div id="question" class="card">Choose Truth or Dare 💕</div>
             <button onclick="newOne()" style="background:#4c1d95;">Next Question</button>
         </div>
@@ -120,7 +105,7 @@
             <button onclick="shareWhatsApp()" style="background:#22c55e;">Share on WhatsApp</button>
         </div>
 
-        <!-- Cute Challenges -->
+        <!-- Challenges -->
         <div id="tab2" style="display:none;">
             <button onclick="getCuteChallenge()" style="background:linear-gradient(90deg, #7c3aed, #db2777);">Get Cute Challenge</button>
             <div id="cuteCard" class="card">Click for special challenges 💕</div>
@@ -134,49 +119,14 @@
     <script>
         let isAleena = false;
 
-        const myPic = "abdul-rehman.jpg";
-        const aleenaPic = "aleena.jpg";
+        // ✅ Your exact file names
+        const myPic = "abdul-rehman.jpg.jpeg";
+        const aleenaPic = "aleena.jpg.jpeg";
 
-        // Full Questions Lists
-        const girlTruths = [
-            "What do you love most about Abdul Rehman? 💜",
-            "What is the most romantic thing Abdul has done for you?",
-            "Describe your dream date with Abdul Rehman 💕",
-            "What naughty thought have you had about Abdul recently? 🔥",
-            "Which part of Abdul turns you on the most? 💋",
-            "Have you ever had a hot dream about Abdul? 😈",
-            "What intimate thing do you want Abdul to do to you?",
-            "What is your darkest fantasy with Abdul Rehman? 😘"
-        ];
-
-        const girlDares = [
-            "Send a flying kiss video 💋",
-            "Record a voice note moaning Abdul Rehman's name softly 👄",
-            "Send a photo in nightwear 💕",
-            "Do a slow seductive dance and send video 🔥",
-            "Send a mirror selfie biting your lip 😈",
-            "Record a voice note saying how much you want Abdul 💋",
-            "Send a cute goodnight voice note with kisses 😘"
-        ];
-
-        const boyTruths = [
-            "What do you love most about Aleena? 💜",
-            "What is the most beautiful thing about Aleena?",
-            "Describe your ideal romantic night with Aleena 💕",
-            "What naughty thought have you had about Aleena recently? 🔥",
-            "Which part of Aleena attracts you the most? 💋",
-            "Have you ever had a hot dream about Aleena? 😈",
-            "What is your darkest fantasy with Aleena? 😘"
-        ];
-
-        const boyDares = [
-            "Send a shirtless photo 💪",
-            "Record a voice note moaning Aleena's name seductively 👄",
-            "Do a slow sexy dance and send video 🔥",
-            "Send a mirror selfie in underwear 😈",
-            "Record a voice note telling Aleena how much you want her 💋",
-            "Send a flying kiss video 😘"
-        ];
+        const girlTruths = ["What do you love most about Abdul Rehman? 💜", "Describe your dream date with him 💕", "What turns you on about Abdul?"];
+        const girlDares = ["Send flying kiss video 💋", "Record voice note with his name 😘", "Send photo in nightwear 💕"];
+        const boyTruths = ["What do you love most about Aleena? 💜", "Describe your ideal night with her 💕"];
+        const boyDares = ["Send shirtless photo 💪", "Record voice note moaning her name 👄"];
 
         function getRandom(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
@@ -211,8 +161,8 @@
             const pic = isAleena ? aleenaPic : myPic;
 
             card.innerHTML = `
-                <img src="${pic}" alt="Our Love">
-                <strong style="color:#c4b5fd; font-size:1.4rem;">💌 To My ${isAleena ? 'Abdul Rehman' : 'Aleena'} 💌</strong><br><br>
+                <img src="${pic}" alt="Our Love" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\"color:#f9a8d4;\">❌ Photo not found.<br>Check file name.</p>'">
+                <strong style="color:#c4b5fd; font-size:1.3rem;">💌 To My ${isAleena ? 'Abdul Rehman' : 'Aleena'} 💌</strong><br><br>
                 ${text}<br><br>
                 <em>Forever Yours ❤️</em>
             `;
@@ -227,11 +177,7 @@
         }
 
         function getCuteChallenge() {
-            const challenges = [
-                "Send 10 💋 kisses in a voice note",
-                "Write 'Abdul Rehman ❤️ Aleena' on your hand and send photo",
-                "Record a video saying I love you with flying kisses 😘"
-            ];
+            const challenges = ["Send 10 kisses in voice note 💋💋💋", "Write 'Abdul Rehman ❤️ Aleena' and send photo"];
             document.getElementById('cuteCard').innerHTML = getRandom(challenges) + "<br><br><b>Send to your love 💕</b>";
         }
 
